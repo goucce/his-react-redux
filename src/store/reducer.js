@@ -33,7 +33,26 @@ function reducer( state = initialState, action ) {
             };
             return _state
         }
+    case 'LOAD_HISTORIES': //Cargar las historias:
+    {
+        let _state = {
+            ...state,
+            histories: action.histories
+        };
+        return _state
 
+    }
+    case 'LOAD_HISTORY': //Cargar las historias:
+    {
+        let _state = {
+            ...state,
+            histories: action.history
+        };
+        return _state
+
+    }
+
+    
     default:
         return state;
     }

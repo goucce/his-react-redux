@@ -38,7 +38,7 @@ const users = localStorage.getItem( 'users' ) ||
     },
     {
         role: 'patient',
-        uid: 2,
+        uid: 5,
         name: 'Juan Diego',
         surname: 'Lan',
         dni: '29965483F',
@@ -46,6 +46,27 @@ const users = localStorage.getItem( 'users' ) ||
         password: 'patient',
     },
  ];
+
+ const histories = JSON.parse( localStorage.getItem( 'historiesHis' ) )|| [
+    {
+        uid: '5',
+        name: 'Juan Diego',
+        doctorid: '3',
+        history: ['Arriba las manos']
+    },
+    {
+        uid: '5',
+        name: 'Juan Diego',
+        doctorid: '3',
+        history: ['Explosion 16', 'Alusion a las explosiones']
+    },
+    {
+        uid: '2',
+        name: 'Maria',
+        doctorid: '3',
+        history: ['Se va a morir.']
+    }
+];
 
 
 
@@ -57,18 +78,22 @@ const api = {
        users.push(user);
        localStorage.setItem('usersHISRedux', JSON.stringify(users));
     },
+    //Obtener los pacients con el filter 
     getPatients(){
         return users.filter(user => user.role === "patient" );
     },
+    //Obtener todas las historias, simplemente seleccionandolas
+    getHistories(){
+        return histories;
+    },
+    //Obtener segun el id a los pacientes y a las Historias
     getPatient(uid){
         return users.find(user => user.uid === uid )
-    },
-    // getHistories(){
-    //     return histories;
-    // },
-    // getHistory(patientId){
-    //     return histories.filter(history => history.uid === patientId );
-    // }
+    },    
+    getHistory(patientId){
+        return histories.filter(history => history.uid === patientId ); 
+        //Queremos las historias especificas que tengan el Id del paciente, el valor que le damos
+    }
 }
 
 
