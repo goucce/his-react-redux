@@ -1,7 +1,7 @@
 const users = localStorage.getItem( 'users' ) || 
 [ {
         role: 'admin',
-        uid:1,
+        uid: '1',
         name: 'Sergio',
         surname: 'Zaragoza',
         dni: '33765483F',
@@ -11,7 +11,7 @@ const users = localStorage.getItem( 'users' ) ||
 
     {
         role: 'patient',
-        uid: 2,
+        uid: '2',
         name: 'Maria',
         surname: 'Lan',
         dni: '29965483F',
@@ -20,7 +20,7 @@ const users = localStorage.getItem( 'users' ) ||
     },
     {
         role: 'doctor',
-        uid: 3,
+        uid: '3',
         name: 'Laura',
         surname: 'Laern',
         dni: '29315483F',
@@ -29,7 +29,7 @@ const users = localStorage.getItem( 'users' ) ||
     },
     {
         role: 'technical',
-        uid: 4,
+        uid: '4',
         name: 'Paula',
         surname: 'Garcia',
         dni: '29965433V',
@@ -38,7 +38,7 @@ const users = localStorage.getItem( 'users' ) ||
     },
     {
         role: 'patient',
-        uid: 5,
+        uid: '5',
         name: 'Juan Diego',
         surname: 'Lan',
         dni: '29965483F',
@@ -76,7 +76,7 @@ const api = {
     },
     createUser(user){
        users.push(user);
-       localStorage.setItem('usersHISRedux', JSON.stringify(users));
+       localStorage.setItem('users', JSON.stringify(users));
     },
     //Obtener los pacients con el filter 
     getPatients(){

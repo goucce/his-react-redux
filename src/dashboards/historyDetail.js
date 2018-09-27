@@ -28,7 +28,6 @@ class historyDetail extends React.Component{
         );
     }
 }
-
 const HistoryDetail = connect(
     state => ({
         auth: state.auth,
