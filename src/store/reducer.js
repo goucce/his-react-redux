@@ -24,6 +24,15 @@ function reducer( state = initialState, action ) {
 
             return _state
         }
+        //Realiza deferentes acciones para la llamada y la utilizacion de pacientes.
+        case 'LOAD_PATIENTS':
+        {
+            let _state = {
+                ...state,
+                patients: action.patients //accion que devuleve unicamente aquellos que sean pacientes
+            };
+            return _state
+        }
 
     default:
         return state;

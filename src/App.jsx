@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Dashboard from "./dashboard";
+
+import PatientsList from "./dashboards/patientsList";
+import Histories from "./dashboards/histories";
+import CreateUser from "./dashboards/createUser";
+import PatientDetail from "./dashboards/patientDetail";
+
 import Login from "./login.jsx";
 import NotFound from "./notFound";
 
@@ -16,6 +22,12 @@ class App extends Component {
               <Switch>
                 <Route path="/" component={Dashboard} exact />
                 <Route path="/login" component={Login} exact />
+                <Route path="/patientsList" component={PatientsList} exact />
+                <Route path="/histories" component={Histories} exact />
+                <Route path="/createUser" component={CreateUser} exact />
+                <Route path="/patientDetail" component={PatientDetail} exact />
+
+
                 <Redirect path="/entrar" to="/login" />
                 <Route component={NotFound} />
               </Switch>

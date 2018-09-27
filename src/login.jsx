@@ -5,14 +5,19 @@ import { Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
 class login extends React.Component {
+
   constructor(props) {
     super(props);
+    
     this.state = {
-      username: "jupegarnica",
-      password: "1234",
+      
+
+      
+      
       error: null
     };
   }
+
   login(ev) {
     ev.preventDefault();
     const { username, password } = this.state;
@@ -45,12 +50,14 @@ class login extends React.Component {
           <input
             type="text"
             name="username"
+            placeholder="Username"
             value={this.state.username}
             onChange={this.handleChange.bind(this)}
           />
           <input
             type="password"
             name="password"
+            placeholder="Password"
             value={this.state.password}
             onChange={this.handleChange.bind(this)}
           />

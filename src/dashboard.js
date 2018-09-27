@@ -4,9 +4,11 @@ import { Redirect, Link } from "react-router-dom";
 import "./dashboard.css";
 
 class dashboard extends React.Component {
+  
   logout = () => {
     this.props.logoutStore();
   };
+
   render() {
     if (!this.props.auth) {
       return <Redirect to="/login" />;

@@ -35,8 +35,18 @@ const users = localStorage.getItem( 'users' ) ||
         dni: '29965433V',
         username: 'tecnico',
         password: 'tecnico',
-    }
+    },
+    {
+        role: 'patient',
+        uid: 2,
+        name: 'Juan Diego',
+        surname: 'Lan',
+        dni: '29965483F',
+        username: 'patient',
+        password: 'patient',
+    },
  ];
+
 
 
 const api = {
@@ -45,8 +55,20 @@ const api = {
     },
     createUser(user){
        users.push(user);
-       localStorage.setItem('users', users);
-    }
+       localStorage.setItem('usersHISRedux', JSON.stringify(users));
+    },
+    getPatients(){
+        return users.filter(user => user.role === "patient" );
+    },
+    getPatient(uid){
+        return users.find(user => user.uid === uid )
+    },
+    // getHistories(){
+    //     return histories;
+    // },
+    // getHistory(patientId){
+    //     return histories.filter(history => history.uid === patientId );
+    // }
 }
 
 
