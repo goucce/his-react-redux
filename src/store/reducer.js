@@ -2,14 +2,18 @@ const initialState = {
     auth: null,
     histories: [],
     patients: [],
-    patient: {}
-}
+    patient: {},
+    history: {},
+    doctor: {}
+} //inicializamos toods los estados que se van a tratar en el reducer
 
-function reducer( state = initialState, action ) {
+function reducer( state = initialState, action ) { //indicamos como se van a realizar las acciones
+
     switch ( action.type ) {
-    case 'USER_LOGGED_IN':
+
+    case 'USER_LOGGED_IN': // NO LO ENTIENDO BIEN ESTOS ESTADOS.
         {
-            let _state = {
+            let _state = { 
                 ...state,
                 auth: action.payload
             };
@@ -47,7 +51,7 @@ function reducer( state = initialState, action ) {
     {
         let _state = {
             ...state,
-            history: action.history
+            history: action.payload //action.payload
         };
         return _state
 

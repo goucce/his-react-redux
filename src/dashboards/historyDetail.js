@@ -5,24 +5,22 @@ import { connect } from "react-redux";
 class historyDetail extends React.Component{
     constructor(props){
         super(props);
-        props.loadHistory();
+        props.loadHistory(this.props.match.params.uid.toString());
     }
     
+
     render() {
+        const doctor = api.getDoctor(this.props.history.doctorid);
+
         return (
+            
             <div>
-                {console.log("id:"+this.props.match.params.uid)}
                 <h1>Historial del paciente</h1>
                 <div>
-                    {/* Mapeamos y recorremos todas las historias de usuario */}
-                    {this.props.userHistories.map(item => 
-                        <div key={item.uid}> {/* Como "llave" tenemos el ide del usuairo y por lo tanto sacamos lo que tenga  */}
-                            {item.uid}
-                            {item.doctorid}
-                            {item.histories}
-                            )}                            
-                        </div>
-                    )}
+                    ID: {this.props.history.uid} <br/>
+                    Doctor: {doctor.name}<br/>
+                    Historial: <br/>
+                    {this.props.history.history}<br/>
                 </div>
             </div>
         );
@@ -31,14 +29,14 @@ class historyDetail extends React.Component{
 const HistoryDetail = connect(
     state => ({
         auth: state.auth,
-        histories: state.histories
+        history: state.history
     }),
     dispatch => ({
-        loadHistory: () => {
-            let history = api.getHistory();
+        loadHistory: (uid) => {
+            let history = api.getHistory(uid);
             dispatch({
                 type:'LOAD_HISTORY',
-                 histories: history})
+                 payload: history})
         }
     })
 )(historyDetail);

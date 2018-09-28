@@ -1,6 +1,8 @@
 import React from "react";
 import api from "../services/api";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 
 
 
@@ -17,7 +19,7 @@ class patientsList extends React.Component {
             <div>
             <h1>PatientsLists</h1>
 
-                {this.props.patients.map(item => <div key={item.name}> {item.name}</div>)}
+                    {this.props.patients.map(item => <Link key={item.uid} to={`/patientDetail/${item.uid}`}><div key={item.uid}>{item.name}</div></Link>)}
                 {/* Recorremos patients y con .map seleccionamos aquellos que tengan como llave el nombre del "paciente"*/}
             </div>
 

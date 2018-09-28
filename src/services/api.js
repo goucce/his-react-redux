@@ -45,6 +45,15 @@ const users = localStorage.getItem( 'users' ) ||
         username: 'patient',
         password: 'patient',
     },
+    {
+        role: 'patient',
+        uid: '6',
+        name: 'Diego',
+        surname: 'Lan',
+        dni: '29965483F',
+        username: 'patient',
+        password: 'patient',
+    },
  ];
 
  const histories = JSON.parse( localStorage.getItem( 'historiesHis' ) )|| [
@@ -55,7 +64,7 @@ const users = localStorage.getItem( 'users' ) ||
         history: ['Arriba las manos']
     },
     {
-        uid: '5',
+        uid: '6',
         name: 'Juan Diego',
         doctorid: '3',
         history: ['Explosion 16', 'Alusion a las explosiones']
@@ -72,6 +81,7 @@ const users = localStorage.getItem( 'users' ) ||
 
 const api = {
     login(username, password) {
+        //Devuelve todo el objeto usuario donde coincidadn tanto el usuario como la contraseña.
         return users.find(user => user.username === username && user.password === password)
     },
     createUser(user){
@@ -90,10 +100,15 @@ const api = {
     getPatient(uid){
         return users.find(user => user.uid === uid )
     },    
-    getHistory(patientId){
-        return histories.filter(history => history.uid === patientId ); 
+    getHistory(uid){
+        return histories.filter(history => history.uid === uid ); 
         //Queremos las historias especificas que tengan el Id del paciente, el valor que le damos
+    },
+    //otro
+    getDoctor(doctorid){
+        return users.find(user => user.uid === doctorid);
     }
+
 }
 
 

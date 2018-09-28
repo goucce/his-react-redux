@@ -60,7 +60,7 @@ class dashboard extends React.Component {
              item => (
               item.roles.includes(role) 
               && 
-              <Link to={item.to}>{item.text}</Link>
+              <Link key ={ item.text} to={item.to}>{item.text}</Link>
              )
            )
          }
