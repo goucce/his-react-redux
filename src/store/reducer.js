@@ -3,9 +3,11 @@ const initialState = {
     histories: [],
     patients: [],
     patient: {},
-    history: {},
+    historyN: {},
     doctor: {}
 } //inicializamos toods los estados que se van a tratar en el reducer
+
+
 
 function reducer( state = initialState, action ) { //indicamos como se van a realizar las acciones
 
@@ -51,7 +53,7 @@ function reducer( state = initialState, action ) { //indicamos como se van a rea
     {
         let _state = {
             ...state,
-            history: action.payload //action.payload
+            historyN: action.payload //action.payload
         };
         return _state
 

@@ -58,6 +58,9 @@ const users = localStorage.getItem( 'users' ) ||
 
  const histories = JSON.parse( localStorage.getItem( 'historiesHis' ) )|| [
     {
+        uid:'1',
+    },
+    {
         uid: '5',
         name: 'Juan Diego',
         doctorid: '3',
@@ -86,6 +89,7 @@ const api = {
     },
     createUser(user){
        users.push(user);
+       histories.push({uid: user.uid});
        localStorage.setItem('users', JSON.stringify(users));
     },
     //Obtener los pacients con el filter 
@@ -107,6 +111,10 @@ const api = {
     //otro
     getDoctor(doctorid){
         return users.find(user => user.uid === doctorid);
+    },
+    toSeeHistory(role){
+        if (role === "admin" || role === "doctor") 
+            return true;
     }
 
 }

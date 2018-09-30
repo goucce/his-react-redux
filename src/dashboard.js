@@ -59,15 +59,16 @@ class dashboard extends React.Component {
             {/* Click en el boten accede a la funcion logout del principio que te manda a la pagina inicial  */}
           </h3>
           <h5>
-            {this.props.auth ? name + " is logged in." : "no user is logged in"}
+            {this.props.auth ? name + " is logged in." : "no user is logged in"} 
+            {/* Operador ternario que si esta en auth resultaria el name y si no el no user logged */}
           </h5>
 
          {
-           links.map(
+           links.map( //mapeamos la busqueda de los roles en la constante con todos los links
              item => (
-              item.roles.includes(role) 
+              item.roles.includes(role)  //Asi en el ituem donde roles sea igual, por lo tanto incluya el role que tenemos en "const { role, name, uid } = this.props.auth;"
               && 
-              <Link key ={ item.text} to={item.to}>{item.text}</Link>
+              <Link key ={ item.text} to={item.to}>{item.text}</Link> //Despues linkeamos con la palabra clave guardad en el text de los links a el to, que es la direccion con /, posteriormente se mostrará el texto del nombre
              )
            )
          }
@@ -76,6 +77,7 @@ class dashboard extends React.Component {
     }
   }
 }
+
 const mapStateToProps = state => {
   return {
     auth: state.auth
@@ -95,4 +97,5 @@ const Dashboard = connect(
   mapStateToProps,
   mapDispatchToProps
 )(dashboard);
+
 export default Dashboard;

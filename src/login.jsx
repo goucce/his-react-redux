@@ -77,7 +77,7 @@ class login extends React.Component {
 
         {/* INICIALIZACION DEL FORMULARIO DE LOGIN  */}
 
-        <form onSubmit={this.login.bind(this)}> {/*Todos los datos enviados al hacer Submit en el login se enviarán a la funcion "login"    */}
+        <form onSubmit={this.login.bind(this)} > {/*Todos los datos enviados al hacer Submit en el login se enviarán a la funcion "login"    */}
                                                   {/* El bind lo que hace es declararlo en la funcion del constructor necesario., en este caso en el compoennte login */}
           
           {/*Primer input donde el tener que intriducir el usuario tendrá que ser de tipo texto */}
