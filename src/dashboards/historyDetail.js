@@ -30,15 +30,16 @@ class historyDetail extends React.Component{
 
 
     render() {
-        const{doctorBueno, patient, toSeeHis }=this.state; //no en todos los renderizados se realice la busqueda en el api, que unicame cambie una vez y esta se envie al estado.
+        const{doctorBueno, patient2, toSeeHis }=this.state; //no en todos los renderizados se realice la busqueda en el api, que unicame cambie una vez y esta se envie al estado.
         
         let  historyN = api.toSeeHistory(this.props.auth.role) ? api.getHistory(this.props.match.params.uid) : false;
             console.log("historyN es ? "+ historyN[0]);
         let doctor =  api.getDoctor(historyN[0].doctorid);
         console.log("doctor es ? "+JSON.stringify(doctor));
+        let patient = api.getPatient(historyN[0].uid);
       
 
-        return ( this.state.historyN ?  (
+        return ( historyN ?  (
             
                 // acceder al url directamente y ya le metes el uid
             <div>
@@ -46,7 +47,7 @@ class historyDetail extends React.Component{
                 <div>Dr.{doctor.name}<br/>
                     <p>Historial: </p>
 
-                    {this.props.historyN.history.map(item => <div key={item}>{item}</div>)}<br/>
+                    {historyN[0].history.map(item => <div key={item}>{item}</div>)}<br/>
 
                 </div>
                 <button onClick={this.goBack}>Back</button>
