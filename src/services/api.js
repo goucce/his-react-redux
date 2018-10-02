@@ -1,4 +1,4 @@
-const users = localStorage.getItem( 'users' ) || 
+const users = JSON.parse( localStorage.getItem( 'users' )) || 
 [ {
         role: 'admin',
         uid: '1',
@@ -105,7 +105,11 @@ const api = {
         return users.find(user => user.uid === uid )
     },    
     getHistory(uid){
-        return histories.filter(history => history.uid === uid ); 
+        console.log(uid, histories[1].uid, uid == histories[1].uid);
+        
+        const res = histories.filter(history => history.uid == uid ); 
+        console.log(res);
+        return res
         //Queremos las historias especificas que tengan el Id del paciente, el valor que le damos
     },
     //otro

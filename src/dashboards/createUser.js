@@ -6,7 +6,7 @@ class createUser extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-          role: '',
+          role: 'admin',
           name: '',
           surname: '',
           dni: '',
@@ -17,6 +17,7 @@ class createUser extends React.Component {
     }
     
     handleInputChange(ev) {
+        console.log(ev.target.value)
         this.setState({
             [ev.target.name]: ev.target.value});
     }
@@ -44,9 +45,10 @@ class createUser extends React.Component {
                      <select
                      name="role"                
                      value={this.state.role} 
-                      onChange={this.handleInputChange}>
+                    onChange={this.handleInputChange}
+                    >
                         
-                       <option>admin</option>
+                       <option value='admin'>admin</option>
                         <option>patient</option>
                         <option>technical</option>
                         <option>doctor</option>
